@@ -26,7 +26,7 @@
 		"php" : "7.4 - 8.0",
 		"slothsoft/core" : "^1.5",
 		"slothsoft/farah" : "^1.6",
-        "google/apiclient": "^2.0"
+		"google/apiclient" : "^2.0"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "8.5.*"

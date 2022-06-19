@@ -18,7 +18,7 @@ class CronBuilder implements ExecutableBuilderStrategyInterface {
 
     public const SCHEDULE_RANGE = 'Termine!A2:B';
 
-    public const SCHEDULE_LOCATION = '../config/schedule.xml';
+    public const SCHEDULE_LOCATION = '../config/schedule.csv';
 
     public function buildExecutableStrategies(AssetInterface $context, FarahUrlArguments $args): ExecutableStrategies {
         $writer = function (): DOMDocument {

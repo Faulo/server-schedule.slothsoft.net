@@ -21,7 +21,7 @@
 					<xsl:for-each select="*[@name='user']">
 						<p>
 							Hello,
-							<xsl:value-of select="user/@id" />
+							<xsl:value-of select="user/@name" />
 						</p>
 					</xsl:for-each>
 				</main>
