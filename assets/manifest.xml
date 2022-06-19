@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<assets xmlns="http://schema.slothsoft.net/farah/module"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://schema.slothsoft.net/farah/module http://schema.slothsoft.net/farah/module/1.1.xsd"
+	version="1.1">
+	<resource-directory name="css" type="text/css" />
+	<resource-directory name="xsl"
+		type="application/xslt+xml" />
+	<resource-directory name="dictionary"
+		type="application/xml" />
+
+	<directory name="sitemap">
+		<resource use="template" name="template"
+			type="application/xslt+xml" />
+	</directory>
+
+	<fragment name="data">
+		<custom-asset name="user"
+			parameter-filter="Slothsoft\Server\Schedule\Assets\UserParameterFilter"
+			executable-builder="Slothsoft\Server\Schedule\Assets\UserBuilder" />
+	</fragment>
+
+	<fragment name="pages">
+		<fragment name="index">
+			<use-template ref="/xsl/index" />
+			<use-document ref="//slothsoft@farah/sites" name="sites" />
+			<link-stylesheet ref="/css/theme" />
+		</fragment>
+		<fragment name="user">
+			<use-template ref="/xsl/user" />
+			<use-document ref="/data/user" name="user" />
+			<link-stylesheet ref="/css/theme" />
+		</fragment>
+	</fragment>
+</assets>
