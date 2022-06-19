@@ -15,9 +15,11 @@
 	</directory>
 
 	<fragment name="data">
-		<custom-asset name="user"
-			parameter-filter="Slothsoft\Server\Schedule\Assets\UserParameterFilter"
-			executable-builder="Slothsoft\Server\Schedule\Assets\UserBuilder" />
+        <custom-asset name="user"
+            parameter-filter="Slothsoft\Server\Schedule\Assets\UserParameterFilter"
+            executable-builder="Slothsoft\Server\Schedule\Assets\UserBuilder" />
+        <custom-asset name="cron"
+            executable-builder="Slothsoft\Server\Schedule\Assets\CronBuilder" />
 	</fragment>
 
 	<fragment name="pages">
