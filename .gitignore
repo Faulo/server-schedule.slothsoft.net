@@ -18,3 +18,6 @@ $RECYCLE.BIN/
 /data/
 /cache/
 /log/
+
+# == Schedule ==
+/config/
