@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: http://schema.slothsoft.net/sitemap/
+Sitemap: http://schema.schedule.net/sitemap/
