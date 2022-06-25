@@ -10,7 +10,6 @@ use Slothsoft\Farah\Module\Executable\ExecutableStrategies;
 use Slothsoft\Farah\Module\Executable\ResultBuilderStrategy\DOMWriterResultBuilder;
 use DOMDocument;
 use DOMElement;
-use Slothsoft\Server\Schedule\VolunteerSheet;
 use Slothsoft\Server\Schedule\ScheduleManifest;
 
 class UserBuilder implements ExecutableBuilderStrategyInterface {

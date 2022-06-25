@@ -10,21 +10,25 @@ class ScheduleTable {
 
     /** @var string */
     public $sheetName;
-
+    
     /** @var string */
     public $tableName;
+    
+    /** @var string */
+    public $location;
 
     public function __construct(string $sheetId, string $sheetName, string $tableName) {
         $this->sheetId = $sheetId;
         $this->sheetName = $sheetName;
         $this->tableName = $tableName;
+        $this->location = $this->buildLocation();
     }
 
     public function __toString(): string {
         return "$this->sheetName.$this->tableName";
     }
 
-    public function getLocation(): string {
+    private function buildLocation(): string {
         $location = ServerEnvironment::getDataDirectory();
         $location .= DIRECTORY_SEPARATOR;
         $location .= $this->sheetName;
@@ -47,12 +51,13 @@ class ScheduleTable {
         if (! $success) {
             return false;
         }
-        copy($file, $this->getLocation());
+        copy($file, $this->location);
+        chmod($this->location, 0777);
         return true;
     }
 
     public function load(): VolunteerSheet {
-        return new VolunteerSheet($this->getLocation());
+        return new VolunteerSheet($this->location);
     }
 }
 
