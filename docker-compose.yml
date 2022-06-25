@@ -14,5 +14,7 @@ services:
             - ./data:/var/www/data/
             - ./log:/var/www/log/
             - ./config:/var/www/config/
+            - ./config.php:/var/www/config.php
+            - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
         ports:
             - 80:80

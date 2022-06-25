@@ -33,6 +33,7 @@ COPY src src
 COPY tests tests
 COPY public html
 COPY config.php config.php
+COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 COPY composer.json composer.json
 COPY composer.lock composer.lock
 

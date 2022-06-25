@@ -16,7 +16,7 @@ class UserBuilder implements ExecutableBuilderStrategyInterface {
 
     public function buildExecutableStrategies(AssetInterface $context, FarahUrlArguments $args): ExecutableStrategies {
         $id = $args->get('id');
-        
+
         $volunteers = new VolunteerSheet('../config/volunteers.csv');
         $volunteer = $volunteers->getVolunteerByEmail($id);
 
@@ -26,9 +26,9 @@ class UserBuilder implements ExecutableBuilderStrategyInterface {
             $node->setAttribute('name', $volunteer->name);
             return $node;
         };
-        
+
         $resultBuilder = new DOMWriterResultBuilder(new DOMWriterFromElementDelegate($writer), 'user.xml');
-        
+
         return new ExecutableStrategies($resultBuilder);
     }
 }
