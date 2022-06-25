@@ -23,11 +23,8 @@ class CronBuilder implements ExecutableBuilderStrategyInterface {
 
             yield 'Re-downloading schedule tables:' . PHP_EOL;
 
-            sleep(1);
-
             foreach ($manifest->getTables() as $scheduleTable) {
                 yield "  $scheduleTable...";
-                sleep(1);
                 $response = $values->get($scheduleTable->sheetId, $scheduleTable->tableName);
                 if ($scheduleTable->save($response->getValues())) {
                     yield 'OK!' . PHP_EOL;
@@ -36,7 +33,7 @@ class CronBuilder implements ExecutableBuilderStrategyInterface {
                 }
             }
         };
-        $resultBuilder = new ChunkWriterResultBuilder(new ChunkWriterFromChunksDelegate($writer), 'cron.txt', false);
+        $resultBuilder = new ChunkWriterResultBuilder(new ChunkWriterFromChunksDelegate($writer), 'cron.txt', true);
         return new ExecutableStrategies($resultBuilder);
     }
 }

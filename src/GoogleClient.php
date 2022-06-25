@@ -1,6 +1,8 @@
 <?php
 namespace Slothsoft\Server\Schedule;
 
+use phpseclib3\Exception\FileNotFoundException;
+
 class GoogleClient {
 
     /** @var \Google\Client */
@@ -19,13 +21,18 @@ class GoogleClient {
     }
 
     private static function getClient(): \Google\Client {
+        $file = ServerConfig::getGoogleCredentials();
+        if (! is_file($file)) {
+            throw new FileNotFoundException($file);
+        }
+
         $client = new \Google\Client();
         $client->setApplicationName('My PHP App');
         $client->setScopes([
             \Google\Service\Sheets::SPREADSHEETS_READONLY
         ]);
         $client->setAccessType('offline');
-        $client->setAuthConfig(ServerConfig::getGoogleCredentials());
+        $client->setAuthConfig($file);
 
         return $client;
     }
