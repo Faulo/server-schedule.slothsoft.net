@@ -24,12 +24,12 @@
 
 	<fragment name="pages">
 		<fragment name="index">
-			<use-template ref="/xsl/index" />
+			<use-template ref="/xsl/_index" />
 			<use-document ref="//slothsoft@farah/sites" name="sites" />
 			<link-stylesheet ref="/css/theme" />
 		</fragment>
 		<fragment name="user">
-			<use-template ref="/xsl/user" />
+			<use-template ref="/xsl/_index" />
 			<use-document ref="/data/user" name="user" />
 			<link-stylesheet ref="/css/theme" />
 		</fragment>

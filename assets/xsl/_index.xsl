@@ -7,6 +7,7 @@
 	xmlns:ssv="http://schema.slothsoft.net/schema/versioning">
 
 	<xsl:template match="/*">
+	   <xsl:variable name="user" select="//user"/>
 		<html>
 			<head>
 				<title data-dict="">website/title</title>
@@ -19,10 +20,24 @@
 				</header>
 				<main>
 					<form action="/user/" method="GET">
-						<input type="text" name="id" value=""
+						<input type="text" name="id" value="{$user/@id}"
 							placeholder="yourname@email.com" />
 						<button type="submit">Retrieve Schedule</button>
 					</form>
+                    <xsl:for-each select="$user">
+                        <p>
+                            Hello,
+                            <xsl:value-of select="@name" />.
+                        </p>
+                        <p>
+                            Your shifts are:
+                        </p>
+                        <ul>
+	                        <xsl:for-each select="shift">
+	                            <li><xsl:value-of select="@name" /></li>
+	                        </xsl:for-each>
+                        </ul>
+                    </xsl:for-each>
 				</main>
 				<footer>
 					<span data-dict=".">footer/copyright</span>

@@ -11,20 +11,25 @@ use Slothsoft\Farah\Module\Executable\ResultBuilderStrategy\DOMWriterResultBuild
 use DOMDocument;
 use DOMElement;
 use Slothsoft\Server\Schedule\VolunteerSheet;
+use Slothsoft\Server\Schedule\ScheduleManifest;
 
 class UserBuilder implements ExecutableBuilderStrategyInterface {
 
     public function buildExecutableStrategies(AssetInterface $context, FarahUrlArguments $args): ExecutableStrategies {
         $id = $args->get('id');
 
-        $volunteers = new VolunteerSheet('../config/volunteers.csv');
-        $volunteer = $volunteers->getVolunteerByEmail($id);
+        $writer = function (DOMDocument $targetDoc) use ($id): DOMElement {
+            $manifest = new ScheduleManifest();
+            $rootNode = $targetDoc->createElement('user');
+            $rootNode->setAttribute('id', $id);
+            foreach ($manifest->getSchedules($id) as $shift) {
+                $rootNode->setAttribute('name', $shift->name);
 
-        $writer = function (DOMDocument $targetDoc) use ($volunteer): DOMElement {
-            $node = $targetDoc->createElement('user');
-            $node->setAttribute('id', $volunteer->email);
-            $node->setAttribute('name', $volunteer->name);
-            return $node;
+                $node = $targetDoc->createElement('shift');
+                $node->setAttribute('name', $shift->shiftName);
+                $rootNode->appendChild($node);
+            }
+            return $rootNode;
         };
 
         $resultBuilder = new DOMWriterResultBuilder(new DOMWriterFromElementDelegate($writer), 'user.xml');

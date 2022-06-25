@@ -51,6 +51,8 @@ class ScheduleTable {
         return true;
     }
 
-    public function load(): array {}
+    public function load(): VolunteerSheet {
+        return new VolunteerSheet($this->getLocation());
+    }
 }
 

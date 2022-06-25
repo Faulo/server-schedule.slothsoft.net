@@ -10,13 +10,13 @@ class VolunteerSheet extends SheetBase {
         $this->volunteers[] = new Volunteer($data);
     }
 
-    public function getVolunteerByEmail(string $email): Volunteer {
+    /** @return Volunteer[] */
+    public function getVolunteersByEmail(string $email): iterable {
         foreach ($this->volunteers as $volunteer) {
             if ($volunteer->email === $email) {
-                return $volunteer;
+                yield $volunteer;
             }
         }
-        throw new \InvalidArgumentException($email);
     }
 }
 

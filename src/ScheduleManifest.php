@@ -28,5 +28,16 @@ class ScheduleManifest {
     public function getTables(): iterable {
         return $this->tables;
     }
+
+    /**
+     *
+     * @return Volunteer[]
+     */
+    public function getSchedules(string $email): iterable {
+        foreach ($this->tables as $table) {
+            $sheet = $table->load();
+            yield from $sheet->getVolunteersByEmail($email);
+        }
+    }
 }
 
