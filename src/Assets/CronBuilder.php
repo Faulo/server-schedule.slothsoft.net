@@ -24,7 +24,7 @@ class CronBuilder implements ExecutableBuilderStrategyInterface {
         $writer = function (): DOMDocument {
             $client = $this->getClient();
             $service = new \Google\Service\Sheets($client);
-
+            
             $response = $service->spreadsheets_values->get(self::SCHEDULE_ID, self::SCHEDULE_RANGE);
             $values = $response->getValues();
 

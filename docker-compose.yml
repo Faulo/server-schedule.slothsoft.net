@@ -1,11 +1,9 @@
 version: "3.8"
 
 services:
-    php-apache-environment:
+    apache:
         image: faulo/server-schedule.slothsoft.net:latest
-        build:
-            context: .
-            dockerfile: Dockerfile
+        build: .
         volumes:
             - ./assets:/var/www/assets/
             - ./scripts:/var/www/scripts/
@@ -16,6 +14,5 @@ services:
             - ./data:/var/www/data/
             - ./log:/var/www/log/
             - ./config:/var/www/config/
-            - ./vendor:/var/www/vendor/
         ports:
             - 80:80
