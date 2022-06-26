@@ -17,11 +17,11 @@ class UserBuilder implements ExecutableBuilderStrategyInterface {
 
     public function buildExecutableStrategies(AssetInterface $context, FarahUrlArguments $args): ExecutableStrategies {
         $id = $args->get('user');
-        
-        if (!$id) {
+
+        if (! $id) {
             return new ExecutableStrategies(new NullResultBuilder());
         }
-        
+
         $manifest = new ScheduleManifest();
         $volunteer = $manifest->getVolunteerByEmail($id);
 
