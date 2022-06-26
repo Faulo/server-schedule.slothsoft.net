@@ -6,12 +6,21 @@ use phpseclib3\Exception\FileNotFoundException;
 
 abstract class SheetBase {
 
+    private $location;
+
     public function __construct(string $location) {
         if (! is_file($location)) {
             throw new FileNotFoundException($location);
         }
+        $this->location = $location;
+    }
 
-        if ($handle = fopen($location, 'r')) {
+    /**
+     *
+     * @return array
+     */
+    protected function getRows(): iterable {
+        if ($handle = fopen($this->location, 'r')) {
             // 1st row is header
             if ($data = fgetcsv($handle)) {
                 $indices = [];
@@ -34,13 +43,11 @@ abstract class SheetBase {
                     }
                     $row[$key] = $data[$i];
                 }
-                $this->appendRow($row);
+                yield $row;
             }
 
             fclose($handle);
         }
     }
-
-    protected abstract function appendRow(array $row): void;
 }
 

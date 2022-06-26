@@ -5,10 +5,7 @@ namespace Slothsoft\Server\Schedule;
 class Shift {
 
     /** @var string */
-    public $volunteerName;
-
-    /** @var string */
-    public $volunteerEmail;
+    public $volunteer;
 
     /** @var string */
     public $name;
@@ -23,8 +20,7 @@ class Shift {
     public $end;
 
     public function __construct(array $data) {
-        $this->volunteerName = $data['VOLUNTEER_NAME'] ?? '';
-        $this->volunteerEmail = $data['VOLUNTEER_EMAIL'] ?? '';
+        $this->volunteer = $data['VOLUNTEER_NAME'] ?? '';
         $this->name = $data['SHIFT_NAME'] ?? '';
         $this->location = $data['SHIFT_LOCATION'] ?? '';
         $this->start = $data['SHIFT_START'] ?? '';

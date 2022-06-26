@@ -4,21 +4,14 @@ namespace Slothsoft\Server\Schedule;
 
 class ShiftSheet extends SheetBase {
 
-    /** @var Shift[] */
-    private $shifts = [];
-
-    protected function appendRow(array $data): void {
-        $this->shifts[] = new Shift($data);
-    }
-
     /**
      *
      * @return Shift[]
      */
     public function getShiftsByEmail(string $email): iterable {
-        foreach ($this->shifts as $shift) {
-            if ($shift->volunteerEmail === $email) {
-                yield $shift;
+        foreach ($this->getRows() as $shift) {
+            if ($shift['VOLUNTEER_EMAIL'] === $email) {
+                yield new Shift($shift);
             }
         }
     }
