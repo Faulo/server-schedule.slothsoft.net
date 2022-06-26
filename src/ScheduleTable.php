@@ -56,6 +56,10 @@ class ScheduleTable {
         return true;
     }
 
+    public function exists(): bool {
+        return is_file($this->location) and is_readable($this->location);
+    }
+
     public function load(): ShiftSheet {
         return new ShiftSheet($this->location);
     }

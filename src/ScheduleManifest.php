@@ -37,9 +37,11 @@ class ScheduleManifest {
     public function getVolunteerByEmail(string $email): Volunteer {
         $volunteer = new Volunteer($email);
         foreach ($this->tables as $table) {
-            $sheet = $table->load();
-            foreach ($sheet->getShiftsByEmail($email) as $shift) {
-                $volunteer->appendShift($shift);
+            if ($table->exists()) {
+                $sheet = $table->load();
+                foreach ($sheet->getShiftsByEmail($email) as $shift) {
+                    $volunteer->appendShift($shift);
+                }
             }
         }
         return $volunteer;
