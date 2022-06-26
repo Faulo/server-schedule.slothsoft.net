@@ -8,7 +8,7 @@ class UserParameterFilter extends AbstractMapParameterFilter {
 
     protected function createValueSanitizers(): array {
         return [
-            'id' => new EmailSanitizer('')
+            'user' => new EmailSanitizer('')
         ];
     }
 }

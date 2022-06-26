@@ -10,10 +10,10 @@ class ScheduleTable {
 
     /** @var string */
     public $sheetName;
-    
+
     /** @var string */
     public $tableName;
-    
+
     /** @var string */
     public $location;
 
@@ -56,8 +56,8 @@ class ScheduleTable {
         return true;
     }
 
-    public function load(): VolunteerSheet {
-        return new VolunteerSheet($this->location);
+    public function load(): ShiftSheet {
+        return new ShiftSheet($this->location);
     }
 }
 

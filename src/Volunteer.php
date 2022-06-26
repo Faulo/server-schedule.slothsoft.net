@@ -1,21 +1,39 @@
 <?php
+declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
 class Volunteer {
 
     /** @var string */
     public $email;
-    
+
     /** @var string */
     public $name;
-    
-    /** @var string */
-    public $shiftName;
 
-    public function __construct(array $data) {
-        $this->email = $data['VOLUNTEER_EMAIL'] ?? '';
-        $this->name = $data['VOLUNTEER_NAME'] ?? '';
-        $this->shiftName = $data['SHIFT_NAME'] ?? '';
+    /** @var Shift[] */
+    public $shifts = [];
+
+    public function __construct(string $email) {
+        $this->email = $email;
+    }
+
+    public function appendShift(Shift $shift): void {
+        if (! $this->name) {
+            $this->name = $shift->volunteerName;
+        }
+        $this->shifts[] = $shift;
+    }
+
+    public function asNode(\DOMDocument $document): \DOMElement {
+        $node = $document->createElement('user');
+        $node->setAttribute('email', $this->email);
+        if ($this->name !== null) {
+            $node->setAttribute('name', $this->name);
+        }
+        foreach ($this->shifts as $shift) {
+            $node->appendChild($shift->asNode($document));
+        }
+        return $node;
     }
 }
 

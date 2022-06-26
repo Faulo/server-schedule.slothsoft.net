@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
-	<p key="website/title">Devcom Schedule Website</p>
+	<p key="website/title">Volunteer Schedule Devcom 2022</p>
 
-	<p key="footer/copyright">© 2017-2022 </p>
+	<p key="footer/copyright">© 2022 </p>
 	<p key="footer/company">
-		<a href="http://slothsoft.net" target="_blank" rel="external">Slothsoft</a>
+		<a href="http://daniel-schulz.slothsoft.net" target="_blank" rel="external">Daniel Schulz</a>
 	</p>
 </html>

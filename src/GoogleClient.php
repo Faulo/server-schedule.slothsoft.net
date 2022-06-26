@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
 use phpseclib3\Exception\FileNotFoundException;

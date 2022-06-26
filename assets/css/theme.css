@@ -1,156 +1,90 @@
+html {
+	background-color: #190B22;
+	color: white;
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
 body {
 	margin: 2em;
 }
 
+article {
+    background-color: #343F1B;
+    border-radius: 3px;
+    padding: 0.5em;
+    margin: 0.5em 0 0.5em 0.5em;
+    box-shadow: 0px 1px 6px 0px black;
+}
+
 nav {
-	border: 1px solid rgba(127, 127, 0, 0.3);
-	background-color: rgba(255, 255, 127, 0.3);
-	padding: 0;
+    background-color: #504A30;  
+    border-radius: 3px;
+	padding: 0.5em;
 	font-size: 0.75em;
+    margin: 1em 0;
+    box-shadow: 0px 1px 6px 0px black;
 }
 
 main {
 	font-size: 1.2em;
 }
 
-table, td, th {
-	border: 1px solid rgba(0, 0, 127, 0.2);
-}
-
-td, th {
-	padding: 0.25em 0.5em;
-}
-
-details summary {
-	padding: 0.75em;
-	font-size: 1.4em;
-}
-
-details>summary * {
-	display: inline-block;
-	margin: 0;
-	font-size: 1em;
-}
-
-.version, .size {
-	font-family: monospace;
-	text-align: right;
+header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 footer {
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
 	font-style: italic;
 	margin-top: 2em;
 	padding: 1em 0;
 }
 
-code, pre {
-	background: rgba(127, 127, 127, 0.1);
-	border-radius: 0.25em;
-	padding: 0.25em;
+h1, h2, h3, p {
+	margin: 0;
 }
 
-pre, .changelog {
-	white-space: pre-wrap;
-	background: rgba(127, 127, 127, 0.1);
-	border-radius: 0.25em;
-	padding: 0.25em;
+input, button {
+	border-radius: 1px;
 }
 
-code {
-	white-space: nowrap;
+p {
+	line-height: 1.5em;
 }
 
-.path {
-	background: rgba(127, 127, 127, 0.1);
-	font-family: monospace;
-	font-size: 0.9em;
+.volunteer-name, .volunteer-email {
+    padding: 0 0.25em;
+    background-color: #2E2136;
+    border-radius: 3px;
+    display: inline-block;
+}
+.volunteer-name {
+    background-color: #2E2136;
 }
 
-.cardinality {
-	font-family: monospace;
-	text-align: center;
+.volunteer-email {
+    background-color: #877F5A;
 }
 
-.element {
-	background: rgba(127, 127, 255, 0.1);
+.shift-name {
+	font-size: 1.1em;
 }
 
-code.element::before {
-	content: "<";
+.shift-time {
+    font-size: 0.8em;
+    font-style: italic;
 }
 
-code.element::after {
-	content: ">";
-}
-
-.attribute {
-	background: rgba(255, 127, 127, 0.1);
-}
-
-.namespace {
-	background: rgba(0, 0, 0, 0.1);
-}
-
-.type {
-	background: rgba(127, 255, 127, 0.1);
-}
-
-code.type {
-	font-weight: bold;
-}
-
-.category {
-	background: rgba(127, 255, 127, 0.1);
-}
-
-code.group {
-	font-style: italic;
-}
-
-.group {
-	background: rgba(127, 255, 127, 0.1);
-}
-
-code.group {
-	font-style: italic;
-}
-
-.type {
-	background: rgba(255, 127, 255, 0.1);
-}
-
-.token {
-	background: rgba(127, 255, 255, 0.1);
-}
-
-dl.element, dl.attribute, dl.type, dl.category {
-	background: rgb(244, 244, 250);
-	padding: 0.5em 1em;
-	margin: 1em 0 0 0;
-}
-
-.annotation {
-	padding: 0.5em 1em;
-}
-
-dl>dt {
-	font-size: 1.05em;
-}
-
-dl>dd ul {
-	list-style-type: none;
-}
-
-dl>dd p {
-	margin: 0.25em 0 0.5em 2em;
-}
-
-.BNF {
-	font-family: monospace;
-}
-
-ul.toc ul {
-	list-style-type: square;
-	padding-left: 1.5em;
+@media print {
+	html {
+	   margin: 0;
+	}
+	header, footer, nav {
+	   display: none;
+	}
+	article {
+	   box-shadow: none;
+	}
+	.volunteer-name, .volunteer-email {
+	   font-weight: bold;
+	}
 }

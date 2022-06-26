@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
 use phpseclib3\Exception\FileNotFoundException;
@@ -28,6 +29,9 @@ abstract class SheetBase {
             while ($data = fgetcsv($handle)) {
                 $row = [];
                 foreach ($indices as $key => $i) {
+                    if (!isset($data[$i])) {
+                        break;
+                    }
                     $row[$key] = $data[$i];
                 }
                 $this->appendRow($row);
@@ -37,6 +41,6 @@ abstract class SheetBase {
         }
     }
 
-    protected abstract function appendRow(array $row);
+    protected abstract function appendRow(array $row): void;
 }
 

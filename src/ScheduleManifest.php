@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
 use phpseclib3\Exception\FileNotFoundException;
@@ -31,13 +32,17 @@ class ScheduleManifest {
 
     /**
      *
-     * @return Volunteer[]
+     * @return Volunteer
      */
-    public function getSchedules(string $email): iterable {
+    public function getVolunteerByEmail(string $email): Volunteer {
+        $volunteer = new Volunteer($email);
         foreach ($this->tables as $table) {
             $sheet = $table->load();
-            yield from $sheet->getVolunteersByEmail($email);
+            foreach ($sheet->getShiftsByEmail($email) as $shift) {
+                $volunteer->appendShift($shift);
+            }
         }
+        return $volunteer;
     }
 }
 
