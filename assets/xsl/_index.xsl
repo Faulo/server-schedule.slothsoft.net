@@ -70,8 +70,12 @@
 	<xsl:template match="shift">
 		<article class="shift">
 			<p class="shift-time">
+				<span>
+					<xsl:value-of select="@date-buffered" />
+				</span>
+				<xsl:text> </xsl:text>
 				<xsl:value-of select="@start-buffered" />
-				-
+				<xsl:text> - </xsl:text>
 				<xsl:value-of select="@end" />
 			</p>
 			<h2 class="shift-name">
