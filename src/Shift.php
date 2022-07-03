@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
+use Slothsoft\Core\Calendar\DateTimeFormatter;
 use DateTime;
 
 class Shift {
@@ -24,6 +25,9 @@ class Shift {
     /** @var string */
     public $end;
 
+    /** @var string */
+    private $dateFormat = DateTimeFormatter::FORMAT_DATETIME;
+
     public function __construct(ScheduleTable $table, array $data) {
         $this->table = $table;
 
@@ -40,10 +44,10 @@ class Shift {
         $node = $document->createElement('shift');
         $node->setAttribute('name', $this->name);
         $node->setAttribute('location', $this->location);
-        $node->setAttribute('start', $this->start->format(DateTime::W3C));
+        $node->setAttribute('start', $this->start->format($this->dateFormat));
         $node->setAttribute('start-buffered', $this->start->sub($this->table->getShiftBuffer())
-            ->format(DateTime::W3C));
-        $node->setAttribute('end', $this->end->format(DateTime::W3C));
+            ->format($this->dateFormat));
+        $node->setAttribute('end', $this->end->format($this->dateFormat));
         return $node;
     }
 }

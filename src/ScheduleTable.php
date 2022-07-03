@@ -15,7 +15,7 @@ class ScheduleTable {
     /** @var string */
     private $date;
 
-    /** @var CsvSheet */
+    /** @var GoogleCSV */
     private $csv;
 
     /** @var string */
@@ -81,7 +81,7 @@ class ScheduleTable {
     }
 
     private function load(): void {
-        $this->csv = new CsvSheet($this->location);
+        $this->csv = new GoogleCSV($this->location);
     }
 
     /**
