@@ -25,7 +25,7 @@ class Shift {
     public $end;
 
     /** @var string */
-    private $dateFormat = 'd.m.Y';
+    private $dateFormat = 'D, d.m.Y';
 
     /** @var string */
     private $timeFormat = 'H:i';
