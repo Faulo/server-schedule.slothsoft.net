@@ -6,8 +6,8 @@ use phpseclib3\Exception\FileNotFoundException;
 
 class ScheduleManifest {
 
-    /** @var ScheduleTable[] */
-    private $tables = [];
+    /** @var ScheduleSheet[] */
+    private $sheets = [];
 
     public function __construct() {
         $file = ServerConfig::getScheduleManifest();
@@ -16,9 +16,7 @@ class ScheduleManifest {
         }
         $manifest = json_decode(file_get_contents($file), true);
         foreach ($manifest as $sheet) {
-            foreach ($sheet['tables'] as $tableName) {
-                $this->tables[] = new ScheduleTable($sheet['id'], $sheet['name'], $tableName);
-            }
+            $this->sheets[] = new ScheduleSheet($sheet);
         }
     }
 
@@ -27,7 +25,9 @@ class ScheduleManifest {
      * @return ScheduleTable[]
      */
     public function getTables(): iterable {
-        return $this->tables;
+        foreach ($this->sheets as $sheet) {
+            yield from $sheet->getTables();
+        }
     }
 
     /**
@@ -36,10 +36,9 @@ class ScheduleManifest {
      */
     public function getVolunteerByEmail(string $email): Volunteer {
         $volunteer = new Volunteer($email);
-        foreach ($this->tables as $table) {
+        foreach ($this->getTables() as $table) {
             if ($table->exists()) {
-                $sheet = $table->load();
-                foreach ($sheet->getShiftsByEmail($email) as $shift) {
+                foreach ($table->getShiftsByEmail($email) as $shift) {
                     $volunteer->appendShift($shift);
                 }
             }

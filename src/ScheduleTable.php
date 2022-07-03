@@ -2,38 +2,58 @@
 namespace Slothsoft\Server\Schedule;
 
 use Slothsoft\Core\ServerEnvironment;
+use DateInterval;
 
 class ScheduleTable {
 
-    /** @var string */
-    public $sheetId;
+    /** @var ScheduleSheet */
+    private $sheet;
 
     /** @var string */
-    public $sheetName;
+    private $id;
 
     /** @var string */
-    public $tableName;
+    private $date;
+
+    /** @var CsvSheet */
+    private $csv;
 
     /** @var string */
-    public $location;
+    private $location;
 
-    public function __construct(string $sheetId, string $sheetName, string $tableName) {
-        $this->sheetId = $sheetId;
-        $this->sheetName = $sheetName;
-        $this->tableName = $tableName;
+    public function __construct(ScheduleSheet $sheet, array $table) {
+        $this->sheet = $sheet;
+        $this->id = $table['id'];
+        $this->date = $table['date'];
         $this->location = $this->buildLocation();
     }
 
+    public function getSheetId(): string {
+        return $this->sheet->getId();
+    }
+
+    public function getId(): string {
+        return $this->id;
+    }
+
+    public function getDate(): string {
+        return $this->date;
+    }
+
+    public function getShiftBuffer(): DateInterval {
+        return $this->sheet->getShiftBuffer();
+    }
+
     public function __toString(): string {
-        return "$this->sheetName.$this->tableName";
+        return "{$this->sheet->getName()}.{$this->getId()}";
     }
 
     private function buildLocation(): string {
         $location = ServerEnvironment::getDataDirectory();
         $location .= DIRECTORY_SEPARATOR;
-        $location .= $this->sheetName;
+        $location .= $this->sheet->getName();
         $location .= '.';
-        $location .= $this->tableName;
+        $location .= $this->getId();
         $location .= '.csv';
         return $location;
     }
@@ -60,8 +80,23 @@ class ScheduleTable {
         return is_file($this->location) and is_readable($this->location);
     }
 
-    public function load(): ShiftSheet {
-        return new ShiftSheet($this->location);
+    private function load(): void {
+        $this->csv = new CsvSheet($this->location);
+    }
+
+    /**
+     *
+     * @return Shift[]
+     */
+    public function getShiftsByEmail(string $email): iterable {
+        if ($this->csv === null) {
+            $this->load();
+        }
+        foreach ($this->csv->getRows() as $shift) {
+            if ($shift['VOLUNTEER_EMAIL'] === $email) {
+                yield new Shift($this, $shift);
+            }
+        }
     }
 }
 

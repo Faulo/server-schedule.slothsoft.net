@@ -4,8 +4,9 @@ namespace Slothsoft\Server\Schedule;
 
 use phpseclib3\Exception\FileNotFoundException;
 
-abstract class SheetBase {
+class GoogleCSV {
 
+    /** @var string */
     private $location;
 
     public function __construct(string $location) {
@@ -19,7 +20,7 @@ abstract class SheetBase {
      *
      * @return array
      */
-    protected function getRows(): iterable {
+    public function getRows(): iterable {
         if ($handle = fopen($this->location, 'r')) {
             // 1st row is header
             if ($data = fgetcsv($handle)) {

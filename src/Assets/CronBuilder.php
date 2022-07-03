@@ -25,7 +25,7 @@ class CronBuilder implements ExecutableBuilderStrategyInterface {
 
             foreach ($manifest->getTables() as $scheduleTable) {
                 yield "  $scheduleTable...";
-                $response = $values->get($scheduleTable->sheetId, $scheduleTable->tableName);
+                $response = $values->get($scheduleTable->getSheetId(), $scheduleTable->getId());
                 if ($scheduleTable->save($response->getValues())) {
                     yield 'OK!' . PHP_EOL;
                 } else {
