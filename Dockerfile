@@ -10,6 +10,15 @@ RUN apt-get install libcurl4-openssl-dev && \
 RUN apt-get install -y libxslt1-dev && \
     docker-php-ext-install xsl && \
 	docker-php-ext-enable xsl
+RUN apt-get install -y libzip-dev && \
+	docker-php-ext-install zip && \
+	docker-php-ext-enable zip
+RUN apt-get install -y libonig-dev && \
+    docker-php-ext-install mbstring && \
+	docker-php-ext-enable mbstring
+RUN apt-get install -y libpng-dev imagemagick && \
+    docker-php-ext-install gd && \
+	docker-php-ext-enable gd
 RUN docker-php-ext-install fileinfo && \
 	docker-php-ext-enable fileinfo
 RUN docker-php-ext-install sockets && \
@@ -20,9 +29,6 @@ RUN docker-php-ext-install intl && \
 	docker-php-ext-enable intl
 RUN docker-php-ext-install dom && \
 	docker-php-ext-enable dom
-RUN apt-get install -y libzip-dev && \
-	docker-php-ext-install zip && \
-	docker-php-ext-enable zip
 
 # Farah
 RUN mkdir -m 0777 cache

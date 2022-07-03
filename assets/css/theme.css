@@ -1,29 +1,29 @@
 /* https://paletton.com/#uid=34F0u0kio8razgVcRa2mZ6msv3Y */
-
 html {
 	background-color: #190B22;
 	color: white;
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
+
 body {
 	margin: 2em;
 }
 
 article {
-    background-color: #343F1B;
-    border-radius: 3px;
-    padding: 0.5em;
-    margin: 0.5em 0 0.5em 0.5em;
-    box-shadow: 0px 1px 6px 0px black;
+	background-color: #343F1B;
+	border-radius: 3px;
+	padding: 0.5em;
+	margin: 0.5em 0 0.5em 0.5em;
+	box-shadow: 0px 1px 6px 0px black;
 }
 
 nav {
-    background-color: #504A30;  
-    border-radius: 3px;
+	background-color: #504A30;
+	border-radius: 3px;
 	padding: 0.5em;
 	font-size: 0.75em;
-    margin: 1em 0;
-    box-shadow: 0px 1px 6px 0px black;
+	margin: 1em 0;
+	box-shadow: 0px 1px 6px 0px black;
 }
 
 main {
@@ -31,7 +31,7 @@ main {
 }
 
 header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 footer {
@@ -54,17 +54,18 @@ p {
 }
 
 .volunteer-name, .volunteer-email {
-    padding: 0 0.25em;
-    background-color: #2E2136;
-    border-radius: 3px;
-    display: inline-block;
+	padding: 0 0.25em;
+	background-color: #2E2136;
+	border-radius: 3px;
+	display: inline-block;
 }
+
 .volunteer-name {
-    background-color: #2E2136;
+	background-color: #2E2136;
 }
 
 .volunteer-email {
-    background-color: #877F5A;
+	background-color: #877F5A;
 }
 
 .shift-name {
@@ -72,21 +73,26 @@ p {
 }
 
 .shift-time {
-    font-size: 0.8em;
-    font-style: italic;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+img.qr {
+	background-color: white;
+	display: block;
 }
 
 @media print {
 	html {
-	   margin: 0;
+		margin: 0;
 	}
 	header, footer, nav {
-	   display: none;
+		display: none;
 	}
 	article {
-	   box-shadow: none;
+		box-shadow: none;
 	}
 	.volunteer-name, .volunteer-email {
-	   font-weight: bold;
+		font-weight: bold;
 	}
 }

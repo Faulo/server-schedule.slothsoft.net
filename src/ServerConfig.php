@@ -3,6 +3,9 @@ declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
 use Slothsoft\Core\Configuration\FileConfigurationField;
+use Slothsoft\Core\Configuration\ConfigurationField;
+use chillerlan\QRCode\QROptions;
+use chillerlan\QRCode\QRCode;
 
 class ServerConfig {
 
@@ -36,6 +39,26 @@ class ServerConfig {
 
     public static function getScheduleManifest(): string {
         return self::scheduleManifest()->getValue();
+    }
+
+    private static function qrOptions(): ConfigurationField {
+        static $field;
+        if ($field === null) {
+            $field = new ConfigurationField(new QROptions());
+        }
+        return $field;
+    }
+
+    public static function setQROptions(QROptions $options): void {
+        self::qrOptions()->setValue($options);
+    }
+
+    public static function getQROptions(): QROptions {
+        return self::qrOptions()->getValue();
+    }
+
+    public static function printQR(string $name): string {
+        return (new QRCode(self::getQROptions()))->render($name);
     }
 }
 

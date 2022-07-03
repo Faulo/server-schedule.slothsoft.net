@@ -4,7 +4,8 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:sfs="http://schema.slothsoft.net/farah/sitemap"
 	xmlns:sfm="http://schema.slothsoft.net/farah/module"
-	xmlns:ssv="http://schema.slothsoft.net/schema/versioning">
+	xmlns:ssv="http://schema.slothsoft.net/schema/versioning"
+	xmlns:php="http://php.net/xsl" extension-element-prefixes="php">
 
 	<xsl:template match="/*">
 		<xsl:variable name="user" select="//user" />
@@ -49,6 +50,12 @@
 			</span>
 		</p>
 		<xsl:apply-templates select="shift" />
+		<p>
+			This is your QR code for checking in:
+		</p>
+		<img class="qr"
+			src="{php:function('Slothsoft\Server\Schedule\ServerConfig::printQR', string(@email))}"
+			alt="{@email}" />
 	</xsl:template>
 
 	<xsl:template
