@@ -4,7 +4,8 @@ WORKDIR /var/www
 # PHP extensions
 RUN apt-get update && \
 	apt-get upgrade -y
-RUN docker-php-ext-install curl && \
+RUN apt-get install libcurl4-openssl-dev && \
+	docker-php-ext-install curl && \
 	docker-php-ext-enable curl
 RUN apt-get install -y libxslt1-dev && \
     docker-php-ext-install xsl && \
@@ -22,8 +23,6 @@ RUN docker-php-ext-install dom && \
 RUN apt-get install -y libzip-dev && \
 	docker-php-ext-install zip && \
 	docker-php-ext-enable zip
-RUN apt-get update && \
-	apt-get upgrade -y
 
 # Farah
 RUN mkdir -m 0777 cache
