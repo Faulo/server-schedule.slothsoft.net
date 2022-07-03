@@ -4,6 +4,8 @@ WORKDIR /var/www
 # PHP extensions
 RUN apt-get update && \
 	apt-get upgrade -y
+RUN docker-php-ext-install curl && \
+	docker-php-ext-enable curl
 RUN apt-get install -y libxslt1-dev && \
     docker-php-ext-install xsl && \
 	docker-php-ext-enable xsl

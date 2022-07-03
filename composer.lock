@@ -176,16 +176,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.254.0",
+            "version": "v0.255.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "e1b16659df899f3bdf5c798358c256a9cc01efeb"
+                "reference": "2b895ceb08eb106f65e975221e5d2e971cf7470e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/e1b16659df899f3bdf5c798358c256a9cc01efeb",
-                "reference": "e1b16659df899f3bdf5c798358c256a9cc01efeb",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/2b895ceb08eb106f65e975221e5d2e971cf7470e",
+                "reference": "2b895ceb08eb106f65e975221e5d2e971cf7470e",
                 "shasum": ""
             },
             "require": {
@@ -214,9 +214,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.254.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.255.0"
             },
-            "time": "2022-06-19T01:16:11+00:00"
+            "time": "2022-06-27T01:30:11+00:00"
         },
         {
             "name": "google/auth",
@@ -2056,16 +2056,16 @@
         },
         {
             "name": "slothsoft/core",
-            "version": "1.5.3",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Faulo/slothsoft-core.git",
-                "reference": "3d0ca40e2f2ac4ac3a2f3dba6d5c2d78a8b950ce"
+                "reference": "8524c09fe18d9bb14b2d1210473d3dfd0412c598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Faulo/slothsoft-core/zipball/3d0ca40e2f2ac4ac3a2f3dba6d5c2d78a8b950ce",
-                "reference": "3d0ca40e2f2ac4ac3a2f3dba6d5c2d78a8b950ce",
+                "url": "https://api.github.com/repos/Faulo/slothsoft-core/zipball/8524c09fe18d9bb14b2d1210473d3dfd0412c598",
+                "reference": "8524c09fe18d9bb14b2d1210473d3dfd0412c598",
                 "shasum": ""
             },
             "require": {
@@ -2116,9 +2116,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Faulo/slothsoft-core/issues",
-                "source": "https://github.com/Faulo/slothsoft-core/tree/1.5.3"
+                "source": "https://github.com/Faulo/slothsoft-core/tree/1.5.4"
             },
-            "time": "2022-06-25T20:39:20+00:00"
+            "time": "2022-06-29T18:44:07+00:00"
         },
         {
             "name": "slothsoft/farah",
@@ -2252,7 +2252,7 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -2299,7 +2299,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.2"
             },
             "funding": [
                 {
