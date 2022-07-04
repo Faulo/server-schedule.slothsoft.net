@@ -21,6 +21,9 @@ class Shift {
     /** @var string */
     private $location;
 
+    /** @var bool */
+    private $checkedIn;
+
     /** @var string */
     private $note;
 
@@ -43,6 +46,8 @@ class Shift {
         $this->volunteerEmail = $data['VOLUNTEER_EMAIL'] ?? '';
         $this->name = $data['SHIFT_NAME'] ?? '';
         $this->location = $data['SHIFT_LOCATION'] ?? '';
+        $this->note = $data['SHIFT_NOTE'] ?? '';
+        $this->checkedIn = ($data['SHIFT_CHECKIN'] ?? '') === 'TRUE';
 
         $date = $this->table->getDate();
         $this->start = new DateTime("$date {$data['SHIFT_START']}");
@@ -61,6 +66,12 @@ class Shift {
         $node = $document->createElement('shift');
         $node->setAttribute('name', $this->name);
         $node->setAttribute('location', $this->location);
+        if (strlen($this->note)) {
+            $node->setAttribute('note', $this->note);
+        }
+        if ($this->checkedIn) {
+            $node->setAttribute('checked-in', 'checked-in');
+        }
 
         $buffered = $this->start->sub($this->table->getShiftBuffer());
         $node->setAttribute('date', $this->start->format($this->dateFormat));

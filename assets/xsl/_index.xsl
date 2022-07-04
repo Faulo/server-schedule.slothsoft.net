@@ -92,6 +92,17 @@
 				<xsl:text>📍 </xsl:text>
 				<xsl:value-of select="@location" />
 			</p>
+			<xsl:if test="@note">
+				<p class="shift-note">
+					<xsl:text>? </xsl:text>
+					<xsl:value-of select="@note" />
+				</p>
+			</xsl:if>
+			<xsl:if test="@checked-in">
+				<p class="shift-checkin">
+					<xsl:text>Y You have checked in for this shift!</xsl:text>
+				</p>
+			</xsl:if>
 		</article>
 	</xsl:template>
 </xsl:stylesheet>
