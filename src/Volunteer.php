@@ -19,7 +19,8 @@ class Volunteer {
 
     public function appendShift(Shift $shift): void {
         if (! $this->name) {
-            $this->name = $shift->volunteer;
+            $this->name = $shift->getVolunteerName();
+            $this->email = $shift->getVolunteerEmail();
         }
         $this->shifts[] = $shift;
     }

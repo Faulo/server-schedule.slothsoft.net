@@ -7,22 +7,28 @@ use DateTime;
 class Shift {
 
     /** @var ScheduleTable */
-    public $table;
+    private $table;
 
     /** @var string */
-    public $volunteer;
+    private $volunteerName;
 
     /** @var string */
-    public $name;
+    private $volunteerEmail;
 
     /** @var string */
-    public $location;
+    private $name;
+
+    /** @var string */
+    private $location;
+
+    /** @var string */
+    private $note;
 
     /** @var DateTime */
-    public $start;
+    private $start;
 
-    /** @var string */
-    public $end;
+    /** @var DateTime */
+    private $end;
 
     /** @var string */
     private $dateFormat = 'D, d.m.Y';
@@ -33,13 +39,22 @@ class Shift {
     public function __construct(ScheduleTable $table, array $data) {
         $this->table = $table;
 
-        $this->volunteer = $data['VOLUNTEER_NAME'] ?? '';
+        $this->volunteerName = $data['VOLUNTEER_NAME'] ?? '';
+        $this->volunteerEmail = $data['VOLUNTEER_EMAIL'] ?? '';
         $this->name = $data['SHIFT_NAME'] ?? '';
         $this->location = $data['SHIFT_LOCATION'] ?? '';
 
         $date = $this->table->getDate();
         $this->start = new DateTime("$date {$data['SHIFT_START']}");
         $this->end = new DateTime("$date {$data['SHIFT_END']}");
+    }
+
+    public function getVolunteerName(): string {
+        return $this->volunteerName;
+    }
+
+    public function getVolunteerEmail(): string {
+        return $this->volunteerEmail;
     }
 
     public function asNode(\DOMDocument $document): \DOMElement {

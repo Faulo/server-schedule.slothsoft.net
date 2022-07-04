@@ -2,10 +2,10 @@
 declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule;
 
-use Slothsoft\Core\Configuration\FileConfigurationField;
 use Slothsoft\Core\Configuration\ConfigurationField;
-use chillerlan\QRCode\QROptions;
+use Slothsoft\Core\Configuration\FileConfigurationField;
 use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
 
 class ServerConfig {
 

@@ -93,7 +93,7 @@ class ScheduleTable {
             $this->load();
         }
         foreach ($this->csv->getRows() as $shift) {
-            if ($shift['VOLUNTEER_EMAIL'] === $email) {
+            if (strtolower($shift['VOLUNTEER_EMAIL']) === strtolower($email)) {
                 yield new Shift($this, $shift);
             }
         }
