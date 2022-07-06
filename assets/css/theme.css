@@ -3,50 +3,96 @@ html {
 	background-color: #190B22;
 	color: white;
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+	font-size: 1.25em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+*:link, *:visited {
+	color: white;
+	text-decoration: none;
 }
 
 body {
-	margin: 2em;
+}
+
+table {
+    width: 100vw;
+    max-width: 15cm;
+    margin: auto;
+    border-spacing: 0;
+}
+
+td {
+    text-align: center;
+    width: 3rem;
+    font-weight: bold;
+}
+th {
+	text-align: left;
+	font-weight: normal;
+}
+th.p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+th[colspan].p {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 article {
 	background-color: #343F1B;
-	border-radius: 3px;
-	padding: 0.5em;
-	margin: 0.5em 0 0.5em 0.5em;
+	padding: 1rem;
 	box-shadow: 0px 1px 6px 0px black;
 }
 
-nav {
-	background-color: #504A30;
-	border-radius: 3px;
-	padding: 0.5em;
-	font-size: 0.75em;
-	margin: 1em 0;
-	box-shadow: 0px 1px 6px 0px black;
+.category {
+    background-color: #2E2136;
 }
 
-main {
-	font-size: 1.2em;
+.header {
+    background-color: #504A30;
+    font-size: 1.25em;
+    box-shadow: 0px 1px 6px 0px black;
 }
-
-header {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.header th {
+	font-weight: bold;
 }
-
-footer {
-	border-top: 1px solid rgba(255, 255, 255, 0.3);
-	font-style: italic;
-	margin-top: 2em;
-	padding: 1em 0;
+.footer {
+    background-color: #504A30;
+    font-size: 0.9em;
+    box-shadow: 0px 1px 6px 0px black;
 }
-
-h1, h2, h3, p {
-	margin: 0;
-}
-
 input, button {
-	border-radius: 1px;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 3rem;
+    font-size: 1.25em;
+    width: 3rem;
+    border: 0;
+}
+input {
+	width: 90%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+button {
+	width: 10%;
+	text-align: center;
+	line-height: 3rem;
+	display: inline-block;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    line-height: 3rem;
+    font-size: 1.5em;
 }
 
 p {
@@ -54,32 +100,35 @@ p {
 }
 
 .volunteer-name, .volunteer-email {
-	padding: 0 0.25em;
-	background-color: #2E2136;
+	padding: 0.25rem 0.5rem;
+	background-color: #877F5A;
 	border-radius: 3px;
 	display: inline-block;
 }
 
-.volunteer-name {
-	background-color: #2E2136;
-}
-
-.volunteer-email {
-	background-color: #877F5A;
-}
-
 .shift-name {
 	font-size: 1.1em;
+    margin-top: 0.5em;
 }
 
+.shift-date, .shift-time {
+    padding: 0.25rem 0.5rem;
+    background-color: #424B2D;
+    border-radius: 3px;
+    display: inline-block;
+}
 .shift-time {
-	font-size: 0.8em;
-	font-style: italic;
+    background-color: #252F0D;
+	float: right;
 }
 
 img.qr {
 	background-color: white;
 	display: block;
+	width: 100%;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+	
 }
 
 @media print {

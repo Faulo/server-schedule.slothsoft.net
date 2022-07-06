@@ -20,70 +20,99 @@
 			]]></style>
 			</head>
 			<body>
-				<header>
-					<h1 data-dict="">website/title</h1>
-				</header>
-				<nav>
-					<form action="/" method="GET">
-						<input type="text" name="user" value="{$user/@email}"
-							placeholder="yourname@email.com" />
-						<xsl:text> </xsl:text>
-						<button type="submit">Retrieve Schedule</button>
-					</form>
-				</nav>
-				<main>
-					<xsl:apply-templates select="*[@name='user']" />
-				</main>
-				<footer>
-					<span data-dict=".">footer/copyright</span>
-					<span data-dict=".">footer/company</span>
-				</footer>
+
+				<table>
+					<thead>
+					   <xsl:choose>
+					       <xsl:when test="$user/shift">
+						        <tr class="header">
+						            <td><a class="button" href="/">⇠</a></td>
+						            <th><xsl:value-of select="$user/@name" /></th>
+						            <td><a class="button" href="/?user={php:function('urlencode', string($user/@email))}">↻<xsl:copy-of select="."/></a></td>
+						        </tr>
+					       </xsl:when>
+					       <xsl:otherwise>
+		                        <tr class="header">
+		                            <th colspan="2" class="p" data-dict="">website/title</th>
+		                        </tr>
+					       </xsl:otherwise>
+					   </xsl:choose>
+					</thead>
+					<tfoot>
+						<tr class="footer">
+							<th colspan="3" class="p" >
+								<span data-dict=".">footer/copyright</span>
+								<span data-dict=".">footer/company</span>
+							</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<xsl:if test="not($user/shift)">
+							<tr>
+								<th colspan="3">
+									<form action="/" method="GET">
+										<input type="text" name="user" value="{$user/@email}"
+											placeholder="yourname@email.com" />
+                                        <button type="submit">🔍︎</button>
+									</form>
+								</th>
+							</tr>
+						</xsl:if>
+						<xsl:apply-templates select="*[@name='user']" />
+					</tbody>
+				</table>
 			</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="*[@name='user'][user/@name]/user">
-		<p>
-			This is the schedule for:
-			<span class="volunteer-name">
-				<xsl:value-of select="@name" />
-			</span>
-		</p>
+        <tr class="category">
+            <th colspan="3" class="p">These are your shifts:</th>
+        </tr>
 		<xsl:apply-templates select="shift" />
-		<p>
-			This is your QR code for checking in:
-		</p>
-		<img class="qr"
-			src="{php:function('Slothsoft\Server\Schedule\ServerConfig::printQR', string(@email))}"
-			alt="{@email}" />
+		<tr class="category">
+			<th colspan="3" class="p">This is your QR code for checking in:</th>
+		</tr>
+		<tr>
+		  <th colspan="3">		  
+	        <img class="qr"
+		            src="{php:function('Slothsoft\Server\Schedule\ServerConfig::printQR', string(@email))}"
+		            alt="{@email}" />
+		  </th>
+		</tr>
 	</xsl:template>
 
 	<xsl:template
 		match="*[@name='user'][not(user/@name)]/user">
-		<p>
-			Sorry, we don't have any shifts for:
-			<span class="volunteer-email">
-				<xsl:value-of select="@email" />
-			</span>
-		</p>
+        <tr class="category">
+            <th colspan="3" class="p">Sorry, we don't have any shifts for:
+            <span class="volunteer-email">
+                <xsl:value-of select="@email" />
+            </span></th>
+        </tr>
 	</xsl:template>
 
 	<xsl:template match="*[@name='user'][not(user)]">
-		<p>
-			Enter your email address to display your schedule!
-		</p>
+		<tr class="category">
+		  <th colspan="2" class="p">
+			Enter your email address to display your schedule!</th>
+		</tr>
 	</xsl:template>
 
 	<xsl:template match="shift">
+	   <tr>
+	       <th colspan="3">
 		<article class="shift">
-			<p class="shift-time">
-				<span>
+			<p>
+				<span class="shift-date">
 					<xsl:value-of select="@date-buffered" />
 				</span>
 				<xsl:text> </xsl:text>
-				<xsl:value-of select="@start-buffered" />
-				<xsl:text> - </xsl:text>
-				<xsl:value-of select="@end" />
+				<span class="shift-time">
+					<xsl:value-of select="@start-buffered" />
+					<xsl:text> - </xsl:text>
+					<xsl:value-of select="@end" />
+				</span>
 			</p>
 			<h2 class="shift-name">
 				<xsl:value-of select="@name" />
@@ -94,7 +123,7 @@
 			</p>
 			<xsl:if test="@note">
 				<p class="shift-note">
-					<xsl:text>? </xsl:text>
+					<xsl:text>🛈 </xsl:text>
 					<xsl:value-of select="@note" />
 				</p>
 			</xsl:if>
@@ -103,6 +132,6 @@
 					<xsl:text>Y You have checked in for this shift!</xsl:text>
 				</p>
 			</xsl:if>
-		</article>
+		</article></th></tr>
 	</xsl:template>
 </xsl:stylesheet>

@@ -25,7 +25,8 @@
 	<fragment name="pages">
 		<fragment name="index">
 			<use-template ref="/xsl/_index" />
-			<use-document ref="//slothsoft@farah/sites" name="sites" />
+            <use-document ref="//slothsoft@farah/sites" name="sites" />
+            <use-document ref="//slothsoft@farah/request" name="request" />
             <use-document ref="/data/user" name="user" />
 			<link-stylesheet ref="/css/theme" />
 		</fragment>
