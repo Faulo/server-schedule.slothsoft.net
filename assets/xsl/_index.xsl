@@ -16,122 +16,120 @@
 					content="width=device-width, initial-scale=1" />
 				<meta name="author" content="footer/company"
 					data-dict="@content" />
-				<style type="text/css"><![CDATA[
-			]]></style>
 			</head>
 			<body>
+				<header>
+					<form class="table" action="/" method="GET"
+						onsubmit="querySelector('button').textContent = '…'">
+						<div class="button-container">
+							<xsl:if test="$user">
+								<a class="button" href="/" data-dict="">emoji/back</a>
+							</xsl:if>
+						</div>
+						<div>
+							<input type="email" name="user" value="{$user/@email}"
+								placeholder="form/placeholder" data-dict="@placeholder"
+								required="required" />
+						</div>
+						<div class="button-container">
+							<button type="submit" data-dict="">
+								<xsl:choose>
+									<xsl:when test="$user/shift">
+										<xsl:text>emoji/reload</xsl:text>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:text>emoji/submit</xsl:text>
+									</xsl:otherwise>
+								</xsl:choose>
+							</button>
+						</div>
+					</form>
+				</header>
 
-				<table>
-					<thead>
-					   <xsl:choose>
-					       <xsl:when test="$user/shift">
-						        <tr class="header">
-						            <td><a class="button" href="/">⇠</a></td>
-						            <th><xsl:value-of select="$user/@name" /></th>
-						            <td><a class="button" href="/?user={php:function('urlencode', string($user/@email))}">↻<xsl:copy-of select="."/></a></td>
-						        </tr>
-					       </xsl:when>
-					       <xsl:otherwise>
-		                        <tr class="header">
-		                            <th colspan="2" class="p" data-dict="">website/title</th>
-		                        </tr>
-					       </xsl:otherwise>
-					   </xsl:choose>
-					</thead>
-					<tfoot>
-						<tr class="footer">
-							<th colspan="3" class="p" >
-								<span data-dict=".">footer/copyright</span>
-								<span data-dict=".">footer/company</span>
-							</th>
-						</tr>
-					</tfoot>
-					<tbody>
-						<xsl:if test="not($user/shift)">
-							<tr>
-								<th colspan="3">
-									<form action="/" method="GET">
-										<input type="text" name="user" value="{$user/@email}"
-											placeholder="yourname@email.com" />
-                                        <button type="submit">🔍︎</button>
-									</form>
-								</th>
-							</tr>
-						</xsl:if>
-						<xsl:apply-templates select="*[@name='user']" />
-					</tbody>
-				</table>
+				<main>
+					<xsl:apply-templates select="*[@name='user']" />
+				</main>
+
+				<footer data-dict="">footer</footer>
 			</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="*[@name='user'][user/@name]/user">
-        <tr class="category">
-            <th colspan="3" class="p">These are your shifts:</th>
-        </tr>
-		<xsl:apply-templates select="shift" />
-		<tr class="category">
-			<th colspan="3" class="p">This is your QR code for checking in:</th>
-		</tr>
-		<tr>
-		  <th colspan="3">		  
-	        <img class="qr"
-		            src="{php:function('Slothsoft\Server\Schedule\ServerConfig::printQR', string(@email))}"
-		            alt="{@email}" />
-		  </th>
-		</tr>
+		<h1>
+			<xsl:value-of select="@name" />
+		</h1>
+		<section>
+			<h2 data-dict="">category/shifts</h2>
+			<xsl:apply-templates select="shift" />
+		</section>
+		<section>
+			<h2 data-dict="">category/qr</h2>
+			<img class="qr"
+				src="{php:function('Slothsoft\Server\Schedule\ServerConfig::printQR', string(@email))}"
+				alt="{@email}" />
+		</section>
 	</xsl:template>
 
 	<xsl:template
 		match="*[@name='user'][not(user/@name)]/user">
-        <tr class="category">
-            <th colspan="3" class="p">Sorry, we don't have any shifts for:
-            <span class="volunteer-email">
-                <xsl:value-of select="@email" />
-            </span></th>
-        </tr>
+		<section>
+			<h2>
+				<span data-dict=".">category/notfound/1</span>
+				<q class="volunteer-email">
+					<xsl:value-of select="@email" />
+				</q>
+				<span data-dict=".">category/notfound/2</span>
+			</h2>
+		</section>
 	</xsl:template>
 
 	<xsl:template match="*[@name='user'][not(user)]">
-		<tr class="category">
-		  <th colspan="2" class="p">
-			Enter your email address to display your schedule!</th>
-		</tr>
+		<section>
+			<h2 data-dict="">category/home</h2>
+		</section>
 	</xsl:template>
 
 	<xsl:template match="shift">
-	   <tr>
-	       <th colspan="3">
 		<article class="shift">
-			<p>
-				<span class="shift-date">
-					<xsl:value-of select="@date-buffered" />
-				</span>
-				<xsl:text> </xsl:text>
-				<span class="shift-time">
-					<xsl:value-of select="@start-buffered" />
-					<xsl:text> - </xsl:text>
-					<xsl:value-of select="@end" />
-				</span>
-			</p>
-			<h2 class="shift-name">
-				<xsl:value-of select="@name" />
-			</h2>
-			<p class="shift-location">
-				<xsl:text>📍 </xsl:text>
-				<xsl:value-of select="@location" />
-			</p>
-			<xsl:if test="@note">
-				<p class="shift-note">
-					<xsl:text>🛈 </xsl:text>
-					<xsl:value-of select="@note" />
-				</p>
-			</xsl:if>
 			<xsl:if test="@checked-in">
-				<p class="shift-checkin">
-					<xsl:text>Y You have checked in for this shift!</xsl:text>
-				</p>
+				<xsl:attribute name="data-checked-in" />
 			</xsl:if>
-		</article></th></tr>
+			<h3>
+				<xsl:value-of select="@name" />
+			</h3>
+			<table data-dict=".//html:td[1]/node()">
+				<tr>
+					<td>emoji/date</td>
+					<td>
+						<xsl:value-of select="@date-buffered" />
+					</td>
+				</tr>
+				<tr>
+					<td>emoji/time</td>
+					<td>
+						<xsl:value-of select="@start-buffered" />
+						<xsl:text> - </xsl:text>
+						<xsl:value-of select="@end" />
+					</td>
+				</tr>
+				<tr>
+					<td>emoji/location</td>
+					<td>
+						<xsl:value-of select="@location" />
+					</td>
+				</tr>
+				<xsl:if test="@note">
+					<tr>
+						<td>emoji/info</td>
+						<td>
+							<q>
+								<xsl:value-of select="@note" />
+							</q>
+						</td>
+					</tr>
+				</xsl:if>
+			</table>
+		</article>
 	</xsl:template>
 </xsl:stylesheet>

@@ -8,7 +8,7 @@
 		<domain name="schedule.slothsoft.net" vendor="slothsoft"
 			module="schedule.slothsoft.net" ref="pages/index" status-active=""
 			status-public="" sfd:languages="de-de en-us" version="1.1">
-            <page name="cron" title="cron" ref="data/cron" status-active=""/>
+			<page name="cron" title="cron" ref="data/cron" status-active="" />
 			<page name="sitemap" ref="//slothsoft@farah/sitemap-generator"
 				status-active="" />
 		</domain>

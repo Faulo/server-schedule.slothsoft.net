@@ -2,8 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 	<p key="website/title">Volunteer Schedule Devcom 2022</p>
 
-	<p key="footer/copyright">Volunteer Schedule © 2022 </p>
-	<p key="footer/company">
-		<a href="http://daniel-schulz.slothsoft.net" target="_blank" rel="external">Daniel Schulz</a>
+	<p key="footer">
+		<p data-dict="">website/title</p>
+		<p>
+			Farah CMS © 2022
+			<a href="http://daniel-schulz.slothsoft.net" target="_blank"
+				rel="external">Daniel Schulz</a>
+		</p>
 	</p>
+
+	<p key="category/shifts">These are your shifts:</p>
+	<p key="category/qr">This is your qr code for checking in:</p>
+	<p key="category/notfound/1">Sorry, we don't have any shifts for </p>
+	<p key="category/notfound/2">!</p>
+	<p key="category/home">
+		Welcome!
+		<br />
+		Enter your email address above to display your schedule.
+	</p>
+
+	<p key="form/placeholder">youremail@dress.com</p>
+
+	<p key="emoji/back">🏠︎</p>
+	<p key="emoji/submit">🔍︎</p>
+	<p key="emoji/reload">↻</p>
+
+	<p key="emoji/location">📍</p>
+	<p key="emoji/info">ⓘ</p>
+	<p key="emoji/date">📅</p>
+	<p key="emoji/time">🕒</p>
 </html>
