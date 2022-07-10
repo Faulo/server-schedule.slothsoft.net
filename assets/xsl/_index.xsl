@@ -16,6 +16,7 @@
 					content="width=device-width, initial-scale=1" />
 				<meta name="author" content="footer/company"
 					data-dict="@content" />
+				<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 			</head>
 			<body>
 				<header>

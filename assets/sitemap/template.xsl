@@ -10,7 +10,9 @@
 			status-public="" sfd:languages="de-de en-us" version="1.1">
 			<page name="cron" title="cron" ref="data/cron" status-active="" />
 			<page name="sitemap" ref="//slothsoft@farah/sitemap-generator"
-				status-active="" />
+                status-active="" />
+            <file name="favicon.ico" ref="favicon"
+                status-active="" />
 		</domain>
 	</xsl:template>
 </xsl:stylesheet>
