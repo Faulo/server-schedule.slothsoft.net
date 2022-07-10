@@ -1,2 +1,7 @@
 DirectoryIndex index.php
 FallbackResource /index.php
+
+AuthType Basic
+AuthName "Authentication required"
+AuthUserFile /var/www/config/.htpasswd
+Require valid-user
