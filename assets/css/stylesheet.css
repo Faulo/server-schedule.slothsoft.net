@@ -17,9 +17,46 @@
 	vertical-align: top;
 }
 
-/* Colors and fonts: https://paletton.com/#uid=34F0u0kio8razgVcRa2mZ6msv3Y */
+/*
+
+https://paletton.com/#uid=14F0u0kcXa896l39CgpjK97n875
+
+#655270    
+#4E3F57
+#2E2136
+#261431
+#1C0C26
+
+*/
 html {
-	background-color: #0E0315;
+	background-color: #2E2136;
+}
+
+h1 {
+	background-color: #4E3F57;
+}
+
+h2 {
+	background-color: #261431;
+}
+
+.shift {
+	background-color: #655270;
+}
+
+.shift[data-checked-in] {
+	background-color: #2E2136;
+}
+
+.shift[data-checked-in]::before {
+	background-color: #655270;
+}
+
+footer {
+	background-color: #1C0C26;
+}
+
+html {
 	color: #eee;
 	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 	font-size: 1.25em;
@@ -38,13 +75,11 @@ h1, h2, h3, p {
 
 h1 {
 	font-size: 1.5em;
-	background-color: #433C1D;
 	text-align: center;
 }
 
 h2 {
 	font-size: 1em;
-	background-color: #24152D;
 }
 
 h3 {
@@ -63,13 +98,12 @@ header, main, footer, section, article {
 
 header {
 	background-color: white;
-	color: #201A03;
+	color: #1C0C26;
 }
 
 footer {
-	background-color: #433C1D;
 	color: silver;
-	font-size: 0.9em;
+	font-size: 0.8em;
 }
 
 input, button, .button {
@@ -96,20 +130,11 @@ button, .button, .button-container {
 	width: 3rem;
 }
 
-.shift {
-	background-color: #343F1B;
-}
-
-.shift[data-checked-in] {
-	background-color: #424B2D;
-}
-
 .shift[data-checked-in]::before {
 	content: "✔️ checked in!";
 	float: right;
 	padding: 0.25rem 0.5rem 0.25rem 0.25rem;
 	border-radius: 0.25rem;
-	background-color: #343F1B;
 	font-style: italic;
 	margin-top: 0.5rem;
 	margin-right: 0.5rem;
