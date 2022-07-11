@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a890e35b4e177c245fe1e922048d42a4",
+    "content-hash": "4d8ff437ba1383d855a69937990e7638",
     "packages": [
         {
             "name": "chillerlan/php-qrcode",
@@ -316,16 +316,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.256.0",
+            "version": "v0.257.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "122e51021eb19b53f831904918460671d1e7259d"
+                "reference": "ae109202ee831a1fb70ba824181852e6179c848b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/122e51021eb19b53f831904918460671d1e7259d",
-                "reference": "122e51021eb19b53f831904918460671d1e7259d",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/ae109202ee831a1fb70ba824181852e6179c848b",
+                "reference": "ae109202ee831a1fb70ba824181852e6179c848b",
                 "shasum": ""
             },
             "require": {
@@ -354,9 +354,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.256.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.257.0"
             },
-            "time": "2022-07-04T01:10:37+00:00"
+            "time": "2022-07-08T01:28:13+00:00"
         },
         {
             "name": "google/auth",
@@ -2262,16 +2262,16 @@
         },
         {
             "name": "slothsoft/farah",
-            "version": "1.7.1",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Faulo/slothsoft-farah.git",
-                "reference": "26227cc0e00699f317dc58b8726b4d4b9622c71d"
+                "reference": "98d7f287362fba6d59427e77b4ff994d12c8bc11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Faulo/slothsoft-farah/zipball/26227cc0e00699f317dc58b8726b4d4b9622c71d",
-                "reference": "26227cc0e00699f317dc58b8726b4d4b9622c71d",
+                "url": "https://api.github.com/repos/Faulo/slothsoft-farah/zipball/98d7f287362fba6d59427e77b4ff994d12c8bc11",
+                "reference": "98d7f287362fba6d59427e77b4ff994d12c8bc11",
                 "shasum": ""
             },
             "require": {
@@ -2297,13 +2297,13 @@
                 "ext-sockets": "*"
             },
             "bin": [
-                "bin/farah-asset",
-                "bin/farah-page"
+                "scripts/farah-asset",
+                "scripts/farah-page"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "1.7.x-dev"
+                    "dev-develop": "1.8.x-dev"
                 }
             },
             "autoload": {
@@ -2333,9 +2333,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Faulo/slothsoft-farah/issues",
-                "source": "https://github.com/Faulo/slothsoft-farah/tree/1.7.1"
+                "source": "https://github.com/Faulo/slothsoft-farah/tree/1.8.0"
             },
-            "time": "2022-07-10T16:32:40+00:00"
+            "time": "2022-07-11T13:18:46+00:00"
         },
         {
             "name": "slothsoft/w3c",
