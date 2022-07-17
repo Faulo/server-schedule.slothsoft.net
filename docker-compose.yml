@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
     apache:
+        container_name: apache
         image: faulo/server-schedule.slothsoft.net:latest
         build: .
         volumes:
