@@ -5,8 +5,9 @@
 	<p key="footer">
 		<p data-dict="">website/title</p>
 		<p>
-			Farah CMS © 2022
-			<a href="http://daniel-schulz.slothsoft.net" target="_blank"
+			<a href="http://farah.slothsoft.net/" target="_blank"
+				rel="external">Farah CMS</a> © 2022
+			<a href="http://daniel-schulz.slothsoft.net/" target="_blank"
 				rel="external">Daniel Schulz</a>
 		</p>
 	</p>
