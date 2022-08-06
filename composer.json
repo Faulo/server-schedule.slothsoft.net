@@ -10,7 +10,6 @@
 	],
 	"autoload" : {
 		"files" : [
-			"config.php",
 			"scripts/bootstrap.php"
 		],
 		"psr-4" : {
@@ -24,7 +23,7 @@
 	},
 	"require" : {
 		"php" : "7.4 - 8.0",
-		"slothsoft/core" : "^1.6",
+		"slothsoft/core" : "1.9",
 		"slothsoft/farah" : "^1.8",
 		"google/apiclient" : "^2.0",
 		"chillerlan/php-qrcode" : "^3.4"
@@ -38,7 +37,7 @@
 		}
 	},
 	"scripts" : {
-		"post-autoload-dump" : "Slothsoft\\Core\\ServerEnvironment::cleanCacheDirectory"
+		"post-update-cmd" : "composer exec server-clean cache"
 	},
 	"homepage" : "http://schedule.slothsoft.net",
 	"authors" : [{
