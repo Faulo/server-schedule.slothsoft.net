@@ -64,7 +64,7 @@ html {
 }
 
 *:link, *:visited {
-	color: white;
+	color: #E8DBA1;
 	text-decoration: none;
 }
 
@@ -88,11 +88,11 @@ h3 {
 
 body {
 	width: 100vw;
-	max-width: 15cm;
+	max-width: 18cm;
 	margin: auto;
 }
 
-@media ( min-width :16cm) {
+@media ( min-width :19cm) {
 	body {
 		margin-top: 1cm;
 		margin-bottom: 1cm;
@@ -138,6 +138,17 @@ button, .button, .button-container {
 	width: 3rem;
 }
 
+a[rel~="external"]::after {
+background-image: url(/slothsoft@schedule.slothsoft.net/images/external-link-icon.svg);
+background-position: top right;
+background-repeat: no-repeat;
+width: 0.5em;
+background-size: contain;
+content: " ";
+display: inline-block;
+height: 1em;
+}
+
 .shift[data-checked-in]::before {
 	content: "✔️ checked in!";
 	float: right;
@@ -158,7 +169,7 @@ button, .button, .button-container {
 	text-align: center;
 }
 
-img.qr {
+section img {
 	background-color: white;
 	display: block;
 	width: 100%;

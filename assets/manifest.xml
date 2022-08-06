@@ -8,8 +8,10 @@
 	<resource-directory name="css" type="text/css" />
 	<resource-directory name="xsl"
 		type="application/xslt+xml" />
-	<resource-directory name="dictionary"
-		type="application/xml" />
+    <resource-directory name="dictionary"
+        type="application/xml" />
+    <resource-directory name="images"
+        type="image/*" />
 
 	<directory name="sitemap">
 		<resource use="template" name="template"
