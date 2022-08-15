@@ -51,7 +51,7 @@
 					<xsl:apply-templates select="*[@name='user']" />
 					<section>
 						<h2>
-							More infos are available on the
+							More info available on the
 							<a
 								href="https://docs.google.com/document/d/1loTufRjf9l4IlaetW06qYlQGp1KZwj29kkfcdYDGQU0/view"
 								target="_blank" rel="external">Volunteer Cheat Sheet</a>
