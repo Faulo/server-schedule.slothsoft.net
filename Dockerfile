@@ -3,7 +3,7 @@ WORKDIR /var/www
 
 # PHP extensions
 RUN apt update
-RUN apt install libcurl4-openssl-dev && \
+RUN apt install -y libcurl4-openssl-dev && \
 	docker-php-ext-install curl && \
 	docker-php-ext-enable curl
 RUN apt install -y libxslt1-dev && \
