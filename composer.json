@@ -23,8 +23,8 @@
 	},
 	"require" : {
 		"php" : "7.4 - 8.0",
-		"slothsoft/core" : "1.9",
-		"slothsoft/farah" : "^1.8",
+		"slothsoft/core" : "^1.10",
+		"slothsoft/farah" : "^1.9",
 		"google/apiclient" : "^2.0",
 		"chillerlan/php-qrcode" : "^3.4"
 	},
