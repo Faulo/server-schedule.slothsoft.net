@@ -3,13 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://schema.slothsoft.net/farah/module http://schema.slothsoft.net/farah/module/1.1.xsd"
 	version="1.1">
-	<resource name="favicon" type="image/x-icon"/>
-	
+	<resource name="favicon" type="image/x-icon" />
+
 	<resource-directory name="css" type="text/css" />
 	<resource-directory name="xsl"
 		type="application/xslt+xml" />
-	<resource-directory name="dictionary"
-		type="application/xml" />
+    <resource-directory name="dictionary"
+        type="application/xml" />
+    <resource-directory name="images"
+        type="image/*" />
 
 	<directory name="sitemap">
 		<resource use="template" name="template"

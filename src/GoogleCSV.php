@@ -39,10 +39,7 @@ class GoogleCSV {
             while ($data = fgetcsv($handle)) {
                 $row = [];
                 foreach ($indices as $key => $i) {
-                    if (! isset($data[$i])) {
-                        break;
-                    }
-                    $row[$key] = $data[$i];
+                    $row[$key] = $data[$i] ?? '';
                 }
                 yield $row;
             }

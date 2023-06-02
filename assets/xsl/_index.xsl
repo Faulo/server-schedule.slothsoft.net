@@ -49,6 +49,17 @@
 
 				<main>
 					<xsl:apply-templates select="*[@name='user']" />
+					<section>
+						<h2>
+							More info available on the
+							<a
+								href="https://docs.google.com/document/d/1loTufRjf9l4IlaetW06qYlQGp1KZwj29kkfcdYDGQU0/view"
+								target="_blank" rel="external">Volunteer Cheat Sheet</a>
+						</h2>
+						<img
+							src="/slothsoft@schedule.slothsoft.net/images/Koelnmesse_plan_devcom_v2_02.png"
+							alt="Koelnmesse_plan_devcom_v2_02" />
+					</section>
 				</main>
 
 				<footer data-dict="">footer</footer>

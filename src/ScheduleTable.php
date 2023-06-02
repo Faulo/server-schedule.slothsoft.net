@@ -72,7 +72,7 @@ class ScheduleTable {
             return false;
         }
         copy($file, $this->location);
-        chmod($this->location, 0777);
+        @chmod($this->location, 0777);
         return true;
     }
 

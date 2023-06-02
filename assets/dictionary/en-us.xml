@@ -3,10 +3,15 @@
 	<p key="website/title">Volunteer Schedule Devcom 2022</p>
 
 	<p key="footer">
-		<p data-dict="">website/title</p>
 		<p>
-			Farah CMS © 2022
-			<a href="http://daniel-schulz.slothsoft.net" target="_blank"
+			Official volunteer schedule for
+			<a href="https://www.devcom.global/" target="_blank" rel="external">devcom 2022</a>
+			<br />
+			Served by
+			<a href="http://farah.slothsoft.net/" target="_blank"
+				rel="external">Farah</a>,
+			maintained by
+			<a href="http://daniel-schulz.slothsoft.net/" target="_blank"
 				rel="external">Daniel Schulz</a>
 		</p>
 	</p>

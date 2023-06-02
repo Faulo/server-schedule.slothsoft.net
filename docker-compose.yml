@@ -2,19 +2,17 @@ version: "3.8"
 
 services:
     apache:
+        container_name: apache
         image: faulo/server-schedule.slothsoft.net:latest
         build: .
         volumes:
             - ./assets:/var/www/assets/
             - ./scripts:/var/www/scripts/
             - ./src:/var/www/src/
-            - ./tests:/var/www/tests/
             - ./public:/var/www/html/
             - ./cache:/var/www/cache/
             - ./data:/var/www/data/
             - ./log:/var/www/log/
             - ./config:/var/www/config/
-            - ./config.php:/var/www/config.php
-            - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
         ports:
             - 80:80
