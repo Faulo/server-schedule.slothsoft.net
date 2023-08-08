@@ -18,7 +18,7 @@ class QRBuilder implements ExecutableBuilderStrategyInterface {
         $text = $args->get('text', '');
 
         $writer = function () use ($text): SplFileInfo {
-            $file = tmp_file(__CLASS__);
+            $file = temp_file(__CLASS__);
             (new QRCode(ServerConfig::getQROptions()))->render($text, $file);
             return new SplFileInfo($file);
         };
