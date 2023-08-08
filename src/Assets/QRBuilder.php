@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule\Assets;
 
-use Google\Service\Container\ServerConfig;
 use Slothsoft\Core\IO\Writable\Adapter\FileWriterFromStringWriter;
 use Slothsoft\Core\IO\Writable\Delegates\StringWriterFromStringDelegate;
 use Slothsoft\Farah\FarahUrl\FarahUrlArguments;
@@ -10,6 +9,7 @@ use Slothsoft\Farah\Module\Asset\AssetInterface;
 use Slothsoft\Farah\Module\Asset\ExecutableBuilderStrategy\ExecutableBuilderStrategyInterface;
 use Slothsoft\Farah\Module\Executable\ExecutableStrategies;
 use Slothsoft\Farah\Module\Executable\ResultBuilderStrategy\FileWriterResultBuilder;
+use Slothsoft\Server\Schedule\ServerConfig;
 
 class QRBuilder implements ExecutableBuilderStrategyInterface {
 
