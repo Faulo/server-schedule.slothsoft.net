@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule\Assets;
 
 use Slothsoft\Core\IO\Writable\Delegates\FileWriterFromFileDelegate;
+use Slothsoft\Core\IO\Writable\Delegates\StringWriterFromStringDelegate;
 use Slothsoft\Farah\FarahUrl\FarahUrlArguments;
 use Slothsoft\Farah\Module\Asset\AssetInterface;
 use Slothsoft\Farah\Module\Asset\ExecutableBuilderStrategy\ExecutableBuilderStrategyInterface;
@@ -15,7 +16,13 @@ use SplFileInfo;
 class QRBuilder implements ExecutableBuilderStrategyInterface {
 
     public function buildExecutableStrategies(AssetInterface $context, FarahUrlArguments $args): ExecutableStrategies {
-        $text = $args->get('text', '');
+        $text = trim($args->get('text', ''));
+
+        if ($text === '') {
+            return new ExecutableStrategies(new StringWriterFromStringDelegate(function () {
+                return 'Missing "text" parameter.';
+            }));
+        }
 
         $writer = function () use ($text): SplFileInfo {
             $file = temp_file(__CLASS__);
