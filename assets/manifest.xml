@@ -22,8 +22,11 @@
 		<custom-asset name="user"
 			parameter-filter="Slothsoft\Server\Schedule\Assets\UserParameterFilter"
 			executable-builder="Slothsoft\Server\Schedule\Assets\UserBuilder" />
-		<custom-asset name="cron"
-			executable-builder="Slothsoft\Server\Schedule\Assets\CronBuilder" />
+        <custom-asset name="cron"
+            executable-builder="Slothsoft\Server\Schedule\Assets\CronBuilder" />
+        <custom-asset name="qr"
+            parameter-filter="Slothsoft\Server\Schedule\Assets\QRParameterFilter"
+            executable-builder="Slothsoft\Server\Schedule\Assets\QRBuilder" />
 	</fragment>
 
 	<fragment name="pages">
