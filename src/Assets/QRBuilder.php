@@ -2,12 +2,14 @@
 declare(strict_types = 1);
 namespace Slothsoft\Server\Schedule\Assets;
 
+use Slothsoft\Core\IO\Writable\Adapter\ChunkWriterFromStringWriter;
 use Slothsoft\Core\IO\Writable\Delegates\FileWriterFromFileDelegate;
 use Slothsoft\Core\IO\Writable\Delegates\StringWriterFromStringDelegate;
 use Slothsoft\Farah\FarahUrl\FarahUrlArguments;
 use Slothsoft\Farah\Module\Asset\AssetInterface;
 use Slothsoft\Farah\Module\Asset\ExecutableBuilderStrategy\ExecutableBuilderStrategyInterface;
 use Slothsoft\Farah\Module\Executable\ExecutableStrategies;
+use Slothsoft\Farah\Module\Executable\ResultBuilderStrategy\ChunkWriterResultBuilder;
 use Slothsoft\Farah\Module\Executable\ResultBuilderStrategy\FileWriterResultBuilder;
 use Slothsoft\Server\Schedule\ServerConfig;
 use chillerlan\QRCode\QRCode;
@@ -19,9 +21,9 @@ class QRBuilder implements ExecutableBuilderStrategyInterface {
         $text = trim($args->get('text', ''));
 
         if ($text === '') {
-            return new ExecutableStrategies(new StringWriterFromStringDelegate(function () {
+            return new ExecutableStrategies(new ChunkWriterResultBuilder(new ChunkWriterFromStringWriter(new StringWriterFromStringDelegate(function () {
                 return 'Missing "text" parameter.';
-            }));
+            })), 'error.txt'));
         }
 
         $writer = function () use ($text): SplFileInfo {
